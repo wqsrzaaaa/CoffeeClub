@@ -8,13 +8,12 @@ import CoffeeTea from "./pages/CoffeeTea";
 import Desert from "./pages/Desert";
 import Fooditems from "./pages/Fooditems";
 import Lenis from "@studio-freight/lenis";
-import Contact from "./pages/Contact";
-
+import Contact from './pages/Contact'
 const App = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    if(window.innerWidth > 800){
+    if (window.innerWidth > 800) {
       gsap.fromTo(
         "#Parent-slide",
         { x: 0 },
@@ -51,44 +50,49 @@ const App = () => {
     };
   }, []);
 
-  
-
-
   return (
-    <Router>
+    <Router basename="/CoffeeClub">
       <Routes>
         <Route path="/" element={<MainContent />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Contact />} />
       </Routes>
     </Router>
   );
 };
 
 const MainContent = () => {
+  const [Intro, setIntro] = useState(true);
 
-  const [Intro, setIntro] = useState(true)
-  
   useEffect(() => {
     const timer = setTimeout(() => {
       setIntro(false);
-    }, 8000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 
+  const [count, setcount] = useState(0)
+
+  useEffect(() => {
+     let interval =   setInterval(() => {
+        setcount((prev) => (prev < 100 ? prev + 1 : 100))
+      }, 45);
+      return ()=> clearInterval(interval)
+  }, [])
+  
+
   return (
     <>
-     
       {Intro ? (
+        <div className="w-full h-screen flex-col  bg-white fixed top-0 flex items-center justify-center">
+          <iframe
+            className="w-[280px] h-[280px]"
+            src="https://lottie.host/embed/69fd9e0d-a737-4373-9230-72eda7be7a65/rhod8Tak2P.lottie"
+          ></iframe>
+          <div className="Intro-bg">{count}%</div>
+        </div>
+      ) : (
         <>
-            <div className="w-full h-screen bg-white fixed top-0 flex items-center justify-center">
-            <iframe className="w-[280px] h-[280px]"
-            src="https://lottie.host/embed/69fd9e0d-a737-4373-9230-72eda7be7a65/rhod8Tak2P.lottie"></iframe>
-            </div>
-        </>
-      )
-      :
-      <>
-         <FirstPage />
+          <FirstPage />
           <Second />
           <div id="Parent-slide" className="w-full text-white flex h-[800vh]">
             <CoffeeTea />
@@ -96,23 +100,24 @@ const MainContent = () => {
           </div>
           <Fooditems />
           <Footer />
-      </>
-    }
+        </>
+      )}
     </>
   );
 };
+
 const Footer = () => {
   return (
     <footer className="w-full h-[30vh] bg-black">
       <div className="w-full h-[15vh] md:h-[20vh] flex items-center justify-center">
         <h1 className="text-4xl footer-club">Club Coffee</h1>
       </div>
-      <div className="w-full  flex flex-col md:flex-row justify-evenly text-white items-center">
+      <div className="w-full flex flex-col md:flex-row justify-evenly text-white items-center">
         <p className="cursor-pointer">Our Menu</p>
-        <p to="/contact" className="text-white">
-          Contact
+          <p className="text-white">
+            Contact
         </p>
-        <p>Email : wqsrza07@gmail.com</p>
+        <p>Email: wqsrza07@gmail.com</p>
       </div>
     </footer>
   );

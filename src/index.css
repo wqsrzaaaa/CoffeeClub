@@ -66,3 +66,9 @@ body{
    color: rgb(255, 174, 0);
   text-shadow: 0 0 20px rgb(255, 111, 0);
 }
+.Intro-bg{
+  background: linear-gradient(to right , rgba(216, 33, 1, 0.958) , rgb(255, 81, 0) , rgba(240, 160, 1, 0.801));
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 5px rgb(225, 60, 0);
+}

@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss()
   ],
-  base: "/Coffee-Club/",
+  base: "/CoffeeClub/",
 })
