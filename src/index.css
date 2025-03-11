@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+::-webkit-scrollbar{
+  display: none;
+}
+body{
+  font-family: 'Iansui';
+  font-weight: 400;
+  font-style: normal;
+  background: #0a0905;
+  overflow-x: hidden;
+}
+
+.background{
+  background: #0a0905;
+}
+.sun{
+  background: rgb(255, 149, 0);
+  box-shadow: 
+    0 0 100px 50px rgb(255, 140, 0),  
+    0 0 200px 100px rgba(255, 100, 0, 0.8), 
+    0 0 300px 150px rgba(255, 70, 0, 0.5);  
+  animation: sun 3s linear ;
+  }
+@keyframes sun {
+  0%{
+    top: 200%;
+
+  }100%{
+    top: 50%;
+  }
+}
+#bg-second{
+  width: 90%;
+  height: 10vh;
+  background: linear-gradient(to top , rgb(255, 72, 0) , orange);
+  box-shadow: 0 0 100px 50px rgb(255, 140, 0),  
+  0 0 200px 100px rgba(255, 100, 0, 0.8), 
+  0 0 300px 150px rgba(255, 153, 0, 0.5);  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  filter: blur(100px);
+  z-index: -1;
+  opacity: .6;
+}
+#trust-text{
+  text-shadow:  0 0 100px 50px rgb(255, 140, 0),  
+  0 0 200px 100px rgba(255, 100, 0, 0.8), 
+  0 0 300px 150px rgba(255, 70, 0, 0.5);  
+}
+#Swiper-slide{
+  width: 400px;
+  background: #231308;
+}
+.review-text{
+  color: rgb(247, 247, 247);
+  text-shadow: 0 0 5px rgb(255, 145, 0);
+}
+.food-item{
+  color: rgb(255, 183, 0);
+  text-shadow:0 0 20px rgb(255, 136, 0);
+}
+.footer-club{
+   color: rgb(255, 174, 0);
+  text-shadow: 0 0 20px rgb(255, 111, 0);
+}
